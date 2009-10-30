@@ -1,3 +1,3 @@
 TODO: To be documented. The idea is showing use cases by image, then immediately a code snippet.
 
-=I'm welcome for any contribution of every body to make the document useful=
+=I'm welcome any contribution of every body to make the document useful=
