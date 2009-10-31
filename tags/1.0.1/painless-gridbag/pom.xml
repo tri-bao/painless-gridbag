@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.painlessgridbag</groupId>
+  <artifactId>painless-gridbag</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.1</version>
+  <name>painless-gridbag</name>
+
+  <dependencies>
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>5.10</version>
+  		<classifier>jdk15</classifier>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>2.0.2</version>
+  			<configuration>
+	            <source>1.5</source>
+	            <target>1.5</target>
+	            <showDeprection>true</showDeprection>
+	            <showWarnings>true</showWarnings>
+  			</configuration>
+  		</plugin>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-eclipse-plugin</artifactId>
+  			<version>2.7</version>
+  			<configuration>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>false</downloadJavadocs>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>
