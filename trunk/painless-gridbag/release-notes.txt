@@ -1,0 +1,3 @@
+31.10.2009 v1.0.1
+- Add method doneAndPushEverythingToTop() PainlessGridBag which works the same as method 
+  <code>done()</code> but all the components in the gird bag will be push to top of the container.
