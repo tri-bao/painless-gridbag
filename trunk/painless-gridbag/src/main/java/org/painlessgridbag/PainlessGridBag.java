@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 import org.painlessgridbag.engine.Debugger;
 import org.painlessgridbag.engine.GridCell;
@@ -97,9 +98,29 @@ public class PainlessGridBag {
         return layout.getChildren().get(component);
     }
 
+    /**
+     * Informs the utility that nothing more to define for the layout. It now
+     * can generate the gridbag. Any further operation on this utility is not
+     * allow (an exception will be thrown).
+     */
     public void done() {
+        done(false);
+    }
+    
+    /**
+     * The same as method <code>done()</code> but all the components in the
+     * gird bag will be push to top of the container.
+     */
+    public void doneAndPushEverythingToTop() {
+        done(true);
+    }
+
+    private void done(final boolean pushToTop) {
         checkDone();
         container.setLayout(new GridBagLayout());
+        if (pushToTop) {
+            row().cellXRemainder(new JPanel()).fillXY();
+        }
         layout.makeColumnsSameWidth();
         layout.done();
 
@@ -111,7 +132,7 @@ public class PainlessGridBag {
         }
         done = true;
     }
-
+    
     private void checkDone() {
         if (done) {
             throw new IllegalStateException(
