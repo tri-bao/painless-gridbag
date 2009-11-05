@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.painlessgridbag.engine.Debugger;
@@ -54,6 +55,7 @@ public class PainlessGridBag {
     private final Debugger debugger;
     private boolean done = false;
     private final GridCell layout;
+    private final PainlessGridbagConfiguration config;
 
     /**
      * @param container
@@ -73,6 +75,7 @@ public class PainlessGridBag {
         this.container = container;
         this.debugger = new Debugger(debug);
         this.layout = new GridCell(config);
+        this.config = config;
     }
 
     /**
@@ -110,6 +113,10 @@ public class PainlessGridBag {
     /**
      * The same as method <code>done()</code> but all the components in the
      * gird bag will be push to top of the container.
+     * <p>
+     * <b>CAUTION</b>: This method cannot be used if there is on component
+     * was added via <code>cellYRemainder</code>.
+     * </p>
      */
     public void doneAndPushEverythingToTop() {
         done(true);
@@ -127,8 +134,13 @@ public class PainlessGridBag {
         Map<JComponent, GridBagConstraints> children = layout.getChildren();
         for (Entry<JComponent, GridBagConstraints> entry
                 : children.entrySet()) {
-            container.add(debugger.getDebugPanel(entry.getKey(), entry
-                    .getValue()), entry.getValue());
+            if ((entry.getKey() instanceof JLabel)
+                    && config.isAlignAllLabelsToRight()) {
+                entry.getValue().anchor = GridBagConstraints.LINE_END;
+            }
+            container.add(
+                    debugger.getDebugPanel(entry.getKey(), entry.getValue()),
+                    entry.getValue());
         }
         done = true;
     }
@@ -139,5 +151,9 @@ public class PainlessGridBag {
                     "The layout has been applied (by calling 'done' method)"
                             + " No further operation is allowed");
         }
+    }
+
+    public PainlessGridbagConfiguration getConfig() {
+        return config;
     }
 }
