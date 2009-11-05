@@ -16,6 +16,7 @@
 package org.painlessgridbag;
 
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -57,6 +58,10 @@ public class AddressBookDemo extends JFrame {
     private final JButton btnSave = new JButton("Save");
     private final JButton btnCancel = new JButton("Cancel");
 
+    // Because they are special-aligned labels :-)
+    private final JLabel lblFirstName = new JLabel("First name");
+    private final JLabel lblPostal = new JLabel("Postal code");
+
     
     public AddressBookDemo() {
         super("Address book demo with painless-gridbag");
@@ -77,14 +82,16 @@ public class AddressBookDemo extends JFrame {
         PainlessGridbagConfiguration config = new PainlessGridbagConfiguration();
         // All JLabels have to be right-aligned.
         config.setAlignAllLabelsToRight(true);
+        // Except these lables
+        config.setLeftAlignLabels(new JLabel[] {lblFirstName, lblPostal});
         
         PainlessGridBag gbl = new PainlessGridBag(getContentPane(), config, false);
-        gbl.row().cellYRemainder(scrPeople).fillXY().cell(newLbl("Last name")).cell(txtLastName).fillX().cell(newLbl("First name")).cell(txtFirstName).fillX();
-        gbl.row().cell().cell(newLbl("Phone")).cell(txtPhone).fillX().cell(newLbl("Email")).cell(txtEmail).fillX();
+        gbl.row().cellYRemainder(scrPeople).fillXY().cell(newLbl("Last name")).cell(txtLastName).fillX().cellX(lblFirstName, 2).cell(txtFirstName).fillX();
+        gbl.row().cell().cell(newLbl("Phone")).cell(txtPhone).fillX().cell(newLbl("Email")).cellX(txtEmail, 2).fillX();
         gbl.row().cell().cell(newLbl("Address 1")).cellXRemainder(txtAdd1).fillX();
         gbl.row().cell().cell(newLbl("Address 2")).cellXRemainder(txtAdd2).fillX();
         gbl.row().cell().cell(newLbl("City")).cell(txtCity).fillX();
-        gbl.row().cell().cell(newLbl("State")).cell(txtState).fillX().cell(newLbl("Postal code")).cell(txtPostal).fillX();
+        gbl.row().cell().cell(newLbl("State")).cell(txtState).fillX().cellX(lblPostal, 2).cell(txtPostal).fillX();
         gbl.row().cell().cell(newLbl("Country")).cell(txtCountry).fillX();
         
         // Add button panel
@@ -102,6 +109,7 @@ public class AddressBookDemo extends JFrame {
         gbl.constraints(txtCity).insets.right = config.getVirticalSpacing();
         gbl.constraints(txtCountry).insets.right = config.getVirticalSpacing();
         gbl.constraints(pnlButton).insets.right = 0;
+        gbl.constraints(lblFirstName).anchor = GridBagConstraints.LINE_START;
         
         gbl.done();
     }

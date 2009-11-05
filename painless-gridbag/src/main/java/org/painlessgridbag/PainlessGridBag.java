@@ -18,6 +18,9 @@ package org.painlessgridbag;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -134,15 +137,31 @@ public class PainlessGridBag {
         Map<JComponent, GridBagConstraints> children = layout.getChildren();
         for (Entry<JComponent, GridBagConstraints> entry
                 : children.entrySet()) {
-            if ((entry.getKey() instanceof JLabel)
-                    && config.isAlignAllLabelsToRight()) {
-                entry.getValue().anchor = GridBagConstraints.LINE_END;
-            }
+            processLabel(entry.getKey(), entry.getValue());
             container.add(
                     debugger.getDebugPanel(entry.getKey(), entry.getValue()),
                     entry.getValue());
         }
         done = true;
+    }
+    
+    private void processLabel(JComponent compo, GridBagConstraints constraint) {
+        if (!(compo instanceof JLabel)) {
+            return;
+        }
+        if (config.isAlignAllLabelsToRight()) {
+            if (!config.getLeftAlignLabels().contains(compo)) {
+                constraint.anchor = GridBagConstraints.LINE_END;
+            } else {
+                constraint.anchor = GridBagConstraints.LINE_START;
+            }
+        } else {
+            if (!config.getRightAlignLabels().contains(compo)) {
+                constraint.anchor = GridBagConstraints.LINE_START;
+            } else {
+                constraint.anchor = GridBagConstraints.LINE_END;
+            }
+        }
     }
     
     private void checkDone() {

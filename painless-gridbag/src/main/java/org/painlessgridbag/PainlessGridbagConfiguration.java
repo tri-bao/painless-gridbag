@@ -16,6 +16,12 @@
 
 package org.painlessgridbag;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.swing.JLabel;
+
 /**
  * 
  * 
@@ -29,7 +35,10 @@ public class PainlessGridbagConfiguration {
     private int lastColumnRightSpacing = 10;
     private int firstRowTopSpacing = 10;
     private int lastRowBottomSpacing = 10;
+    
     private boolean alignAllLabelsToRight = false;
+    private final Set<JLabel> leftAlignLabels = new HashSet<JLabel>();
+    private final Set<JLabel> rightAlignLabels = new HashSet<JLabel>();
 
     // CHECKSTYLE:ON MagicNumber
 
@@ -94,4 +103,43 @@ public class PainlessGridbagConfiguration {
         this.alignAllLabelsToRight = alignAllLabelsToRight;
     }
 
+    /**
+     * @return never null.
+     */
+    public Set<JLabel> getLeftAlignLabels() {
+        return leftAlignLabels;
+    }
+
+    /**
+     * This is only used in conjunction with the configuartion 
+     * <code>AlignAllLabelsToRight</code>. If that config is 
+     * <code>true</code>, all labels that are set here will be
+     * align to left.
+     */
+    public void setLeftAlignLabels(final JLabel[] leftAlignLabels) {
+        this.leftAlignLabels.clear();
+        if (leftAlignLabels != null) {
+            this.leftAlignLabels.addAll(Arrays.asList(leftAlignLabels));
+        }
+    }
+
+    /**
+     * @return never null.
+     */
+    public Set<JLabel> getRightAlignLabels() {
+        return rightAlignLabels;
+    }
+
+    /**
+     * This is only used in conjunction with the configuartion 
+     * <code>AlignAllLabelsToRight</code>. If that config is 
+     * <code>false</code>, all labels that are set here will be
+     * align to right.
+     */
+    public void setRightAlignLabels(final JLabel[] rightAlignLabels) {
+        this.rightAlignLabels.clear();
+        if (rightAlignLabels != null) {
+            this.rightAlignLabels.addAll(Arrays.asList(rightAlignLabels));
+        }
+    }
 }
