@@ -8,3 +8,7 @@
 - Document clearly in javadoc that the doneAndPushEverythingToTop method saying that 
    the method cannot be used if there is on component was added via cellYRemainder
 - Add AddressBookDemo class.
+
+05.11.2009 v1.0.3
+- Improve handling label alignment: add ability to have labels that aligned differently
+  from default behavior
