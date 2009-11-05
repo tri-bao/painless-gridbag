@@ -62,8 +62,8 @@ public class GridCell implements IGridCell, IGridFillable {
 
     public void newRow() {
         if (lastCompoOnRow != null) { // last component on the previous row
-            children.get(lastCompoOnRow).insets.right = config
-                    .getLastColumnRightSpacing();
+            children.get(lastCompoOnRow).insets.right = 
+                config.getLastColumnRightSpacing();
         }
         rowCounter++;
         lastRowComp = new ArrayList<JComponent>();
@@ -74,13 +74,13 @@ public class GridCell implements IGridCell, IGridFillable {
     public void done() {
         if (lastCompoOnRow != null) { // this is for the last component on the
                                       // last row
-            children.get(lastCompoOnRow).insets.right = config
-                    .getLastColumnRightSpacing();
+            children.get(lastCompoOnRow).insets.right =
+                config.getLastColumnRightSpacing();
         }
         if (lastRowComp != null) {
             for (JComponent comp : lastRowComp) {
-                children.get(comp).insets.bottom = config
-                        .getLastRowBottomSpacing();
+                children.get(comp).insets.bottom = 
+                    config.getLastRowBottomSpacing();
             }
         }
     }

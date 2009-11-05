@@ -29,6 +29,7 @@ public class PainlessGridbagConfiguration {
     private int lastColumnRightSpacing = 10;
     private int firstRowTopSpacing = 10;
     private int lastRowBottomSpacing = 10;
+    private boolean alignAllLabelsToRight = false;
 
     // CHECKSTYLE:ON MagicNumber
 
@@ -78,6 +79,19 @@ public class PainlessGridbagConfiguration {
 
     public void setLastRowBottomSpacing(final int lastRowBottomSpacing) {
         this.lastRowBottomSpacing = lastRowBottomSpacing;
+    }
+
+    public boolean isAlignAllLabelsToRight() {
+        return alignAllLabelsToRight;
+    }
+
+    /**
+     * @param alignAllLabelsToRight default is <code>false</code>. If set
+     * to true, all JLabel will be aligned on the right.
+     */
+    public void setAlignAllLabelsToRight(
+            final boolean alignAllLabelsToRight) {
+        this.alignAllLabelsToRight = alignAllLabelsToRight;
     }
 
 }
