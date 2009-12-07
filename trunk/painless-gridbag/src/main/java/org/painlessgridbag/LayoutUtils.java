@@ -31,31 +31,64 @@ public final class LayoutUtils {
 
     private LayoutUtils() {
     }
-
+    
     /**
      * Adds the given list of <code>buttons</code> to the container that
      * is being layed out by the given <code>containterGbl</code>. All 
-     * button will be displayed in the center of the container.
+     * button will be displayed in the center of the container. Vertical
+     * spacing between 2 buttons = 2 * vertical spacing defined by the default
+     * configuration.
+     * 
+     * @return the button panel.
      */
-    public static void addButtonPanel(final PainlessGridBag containterGbl,
+    public static JPanel addButtonPanel(
+            final PainlessGridBag containterGbl,
             final JButton... buttons) {
+        
         PainlessGridbagConfiguration config = creatNoOuterSpacingConfig();
+        return addButtonPanelInternal(containterGbl, config, true, buttons);
+    }
+    
+    /**
+     * Same as method <code>addButtonPanel(PainlessGridBag, JButton...)</code>
+     * excepts spacings around buttons are controlled by the given config.
+     */
+    public static JPanel addButtonPanel(
+            final PainlessGridBag containterGbl,
+            final PainlessGridbagConfiguration buttonConfig,
+            final JButton... buttons) {
 
+        return addButtonPanelInternal(
+                containterGbl, buttonConfig, false, buttons);
+    }
+
+    private static JPanel addButtonPanelInternal(
+            final PainlessGridBag containterGbl,
+            final PainlessGridbagConfiguration buttonConfig,
+            final boolean isDefaultConfig,
+            final JButton... buttons) {
         // create button panel
         JPanel pnlButton = new JPanel();
-        PainlessGridBag gbl = new PainlessGridBag(pnlButton, config, false);
-        addButtons(buttons, GridBagConstraints.LINE_START, gbl, gbl.row());
+        PainlessGridBag gbl = 
+                new PainlessGridBag(pnlButton, buttonConfig, false);
+        addButtons(buttons,
+                    GridBagConstraints.LINE_START,
+                    gbl,
+                    gbl.row(),
+                    isDefaultConfig);
         gbl.done();
 
         // add the panel to the container
         containterGbl.row().cellXRemainder(pnlButton);
         containterGbl.constraints(pnlButton).anchor = GridBagConstraints.CENTER;
+        return pnlButton;
     }
-    
+
     private static void addButtons(final JButton[] buttons,
                                    final int anchor,
                                    final PainlessGridBag gbl,
-                                   final IGridCell row) {
+                                   final IGridCell row,
+                                   final boolean isDefaultConfig) {
         if (buttons == null) {
             return;
         }
@@ -65,9 +98,7 @@ public final class LayoutUtils {
             gridCell = gridCell.cell(button);
             gbl.constraints(button).anchor = anchor;
             
-            // Spacing between 2 button should be double default
-            // spacing of other component.
-            if (!firstBtn) {
+            if (!firstBtn && isDefaultConfig) {
                 gbl.constraints(button).insets.left = 
                     gbl.getConfig().getVirticalSpacing() * 2;
             }
@@ -90,19 +121,41 @@ public final class LayoutUtils {
      * to the container that is being layed out by the given 
      * <code>containterGbl</code>. <code>leftBtns</code> button will be 
      * displayed on the left of the the container. <code>rightBtns</code> 
-     * button will be displayed on the left of the the container.
+     * button will be displayed on the left of the the container. Vertical
+     * spacing between 2 buttons = 2 * vertical spacing defined by the default
+     * configuration.
      */
-    public static void addButtonPanel(final PainlessGridBag containterGbl,
-            final JButton[] leftBtns, final JButton[] rightBtns) {
+    public static JPanel addButtonPanel(
+            final PainlessGridBag containterGbl,
+            final JButton[] leftBtns,
+            final JButton[] rightBtns) {
         PainlessGridbagConfiguration config = creatNoOuterSpacingConfig();
 
+        return addButtonPanelInternal(
+                containterGbl, leftBtns, rightBtns, config, true);
+    }
+
+    private static JPanel addButtonPanelInternal(
+            final PainlessGridBag containterGbl,
+            final JButton[] leftBtns,
+            final JButton[] rightBtns,
+            PainlessGridbagConfiguration config,
+            final boolean isDefaultConfig) {
         JPanel pnlButton = new JPanel();
         PainlessGridBag gbl = new PainlessGridBag(pnlButton, config, false);
         
         IGridCell row = gbl.row();
-        addButtons(leftBtns, GridBagConstraints.LINE_START, gbl, row);
+        addButtons(leftBtns,
+                    GridBagConstraints.LINE_START,
+                    gbl,
+                    row,
+                    isDefaultConfig);
         row.cell(new JPanel()).fillX();
-        addButtons(rightBtns, GridBagConstraints.LINE_END, gbl, row);
+        addButtons(rightBtns,
+                    GridBagConstraints.LINE_END,
+                    gbl,
+                    row,
+                    isDefaultConfig);
 
         gbl.done();
 
@@ -110,5 +163,21 @@ public final class LayoutUtils {
         containterGbl.constraints(pnlButton).anchor = GridBagConstraints.CENTER;
         containterGbl.constraints(pnlButton).insets.left = 0;
         containterGbl.constraints(pnlButton).insets.right = 0;
+        return pnlButton;
+    }
+    
+    
+    /**
+     * Same as method 
+     * <code>addButtonPanel(PainlessGridBag, JButton[], JButton[])</code>
+     * excepts spacings around buttons are controlled by the given config.
+     */
+    public static JPanel addButtonPanel(
+            final PainlessGridBag containterGbl,
+            final PainlessGridbagConfiguration buttonConfig,
+            final JButton[] leftBtns,
+            final JButton[] rightBtns) {
+        return addButtonPanelInternal(
+                containterGbl, leftBtns, rightBtns, buttonConfig, false);
     }
 }
