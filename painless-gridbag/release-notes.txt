@@ -1,14 +1,18 @@
-31.10.2009 v1.0.1
-- Add method doneAndPushEverythingToTop() PainlessGridBag which works the same as method 
-  <code>done()</code> but all the components in the gird bag will be push to top of the container.
-  
+07.12.2009 v1.0.4
+- Now, there will be no "extra" spacing at the bottom when using doneAndPushEverythingToTop()
+- addButtonPanel methods in LayoutUtils now accept PainlessGridbagConfiguration from outside
+
+05.11.2009 v1.0.3
+- Improve handling label alignment: add ability to have labels that aligned differently
+  from default behavior
+
 05.11.2009 v1.0.2
 - Ability to configure the alignment (left/right) of all JLabel
 - Add LayoutUtils class
 - Document clearly in javadoc that the doneAndPushEverythingToTop method saying that 
    the method cannot be used if there is on component was added via cellYRemainder
 - Add AddressBookDemo class.
-
-05.11.2009 v1.0.3
-- Improve handling label alignment: add ability to have labels that aligned differently
-  from default behavior
+  
+31.10.2009 v1.0.1
+- Add method doneAndPushEverythingToTop() PainlessGridBag which works the same as method 
+  <code>done()</code> but all the components in the gird bag will be push to top of the container.

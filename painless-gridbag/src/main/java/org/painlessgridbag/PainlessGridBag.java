@@ -16,6 +16,7 @@
 package org.painlessgridbag;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
@@ -129,7 +130,10 @@ public class PainlessGridBag {
         checkDone();
         container.setLayout(new GridBagLayout());
         if (pushToTop) {
-            row().cellXRemainder(new JPanel()).fillXY();
+            JPanel pnlPadding = new JPanel();
+            pnlPadding.setPreferredSize(new Dimension(1, 1));
+            pnlPadding.setMinimumSize(new Dimension(1, 1));
+            row().cellXRemainder(pnlPadding).fillXY();
         }
         layout.makeColumnsSameWidth();
         layout.done();
