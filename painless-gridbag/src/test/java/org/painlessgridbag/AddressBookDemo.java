@@ -60,6 +60,7 @@ public class AddressBookDemo extends JFrame {
 
     // Because they are special-aligned labels :-)
     private final JLabel lblFirstName = new JLabel("First name");
+    private final JLabel lblEmail = new JLabel("Email");
     private final JLabel lblPostal = new JLabel("Postal code");
 
     
@@ -83,11 +84,11 @@ public class AddressBookDemo extends JFrame {
         // All JLabels have to be right-aligned.
         config.setAlignAllLabelsToRight(true);
         // Except these lables
-        config.setLeftAlignLabels(new JLabel[] {lblFirstName, lblPostal});
+        config.setLeftAlignLabels(new JLabel[] {lblFirstName, lblPostal, lblEmail});
         
         PainlessGridBag gbl = new PainlessGridBag(getContentPane(), config, false);
         gbl.row().cellYRemainder(scrPeople).fillXY().cell(newLbl("Last name")).cell(txtLastName).fillX().cellX(lblFirstName, 2).cell(txtFirstName).fillX();
-        gbl.row().cell().cell(newLbl("Phone")).cell(txtPhone).fillX().cell(newLbl("Email")).cellX(txtEmail, 2).fillX();
+        gbl.row().cell().cell(newLbl("Phone")).cell(txtPhone).fillX().cell(lblEmail).cellX(txtEmail, 2).fillX();
         gbl.row().cell().cell(newLbl("Address 1")).cellXRemainder(txtAdd1).fillX();
         gbl.row().cell().cell(newLbl("Address 2")).cellXRemainder(txtAdd2).fillX();
         gbl.row().cell().cell(newLbl("City")).cell(txtCity).fillX();
