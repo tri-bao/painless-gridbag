@@ -24,16 +24,34 @@ package org.painlessgridbag.engine;
 public interface IFillable {
     /**
      * Makes the component horizontally fills the cell.
+     * This is a equivalent to fillX(1.0).
      */
     IGridCell fillX();
 
     /**
+     * Makes the component horizontally fills the cell.
+     */
+    IGridCell fillX(double weightx);
+
+    /**
      * Makes the component vertically fills the cell.
+     * This is a equivalent to fillY(1.0).
      */
     IGridCell fillY();
 
     /**
+     * Makes the component vertically fills the cell.
+     */
+    IGridCell fillY(double weighty);
+
+    /**
      * Makes the component fills both directions of the cell.
+     *  This is a equivalent to fillXY(1.0, 1.0).
      */
     IGridCell fillXY();
+
+    /**
+     * Makes the component fills both directions of the cell.
+     */
+    IGridCell fillXY(double weightx, double weighty);
 }
