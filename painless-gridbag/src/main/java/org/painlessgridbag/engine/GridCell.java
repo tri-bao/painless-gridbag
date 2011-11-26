@@ -185,7 +185,8 @@ public class GridCell implements IGridCell, IGridFillable {
         // the row, no component
         // is allows placing on that row.
         for (int col = 0; col < grid.getXLength(); col++) {
-            if ((grid.get(col, row) != null)
+            if ((row < grid.getYLength()) && (col < grid.getXLength())
+                    && (grid.get(col, row) != null)
                     && grid.get(col, row).isRemainderX()) {
                 throw new IllegalArgumentException(
                         "The component at cell (row, col) = " + "(" + row
@@ -203,7 +204,8 @@ public class GridCell implements IGridCell, IGridFillable {
         // the column,
         // no component is allows placing on that col.
         for (int row = 0; row < grid.getYLength(); row++) {
-            if ((grid.get(col, row) != null)
+            if ((row < grid.getYLength()) && (col < grid.getXLength())
+                    && (grid.get(col, row) != null)
                     && grid.get(col, row).isRemainderY()) {
                 throw new IllegalArgumentException(
                         "The component at cell (row, col) = "
@@ -266,8 +268,12 @@ public class GridCell implements IGridCell, IGridFillable {
      * {@inheritDoc}
      */
     public IGridCell fillX() {
+        return fillX(1.0);
+    }
+
+    public IGridCell fillX(final double weightx) {
         children.get(currentCompo).fill = GridBagConstraints.HORIZONTAL;
-        children.get(currentCompo).weightx = 1.0;
+        children.get(currentCompo).weightx = weightx;
         return this;
     }
 
@@ -275,9 +281,13 @@ public class GridCell implements IGridCell, IGridFillable {
      * {@inheritDoc}
      */
     public IGridCell fillXY() {
+        return fillXY(1.0, 1.0);
+    }
+
+    public IGridCell fillXY(final double weightx, final double weighty) {
         children.get(currentCompo).fill = GridBagConstraints.BOTH;
-        children.get(currentCompo).weightx = 1.0;
-        children.get(currentCompo).weighty = 1.0;
+        children.get(currentCompo).weightx = weightx;
+        children.get(currentCompo).weighty = weighty;
         return this;
     }
 
@@ -285,8 +295,12 @@ public class GridCell implements IGridCell, IGridFillable {
      * {@inheritDoc}
      */
     public IGridCell fillY() {
+        return fillY(1.0);
+    }
+
+    public IGridCell fillY(final double weighty) {
         children.get(currentCompo).fill = GridBagConstraints.VERTICAL;
-        children.get(currentCompo).weighty = 1.0;
+        children.get(currentCompo).weighty = weighty;
         return this;
     }
 
