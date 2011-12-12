@@ -1,4 +1,4 @@
-xx.xx.2011 v1.0.5
+12.12.2011 v1.0.5
 - new API: fillX(weightx), fillY(weighty), fillXY(weightx, weighty)
 - Fix "ArrayIndexOutOfBoundsException: 20" when there is 19 (exactly) rows defined in one PainlessGridbag
 java.lang.ArrayIndexOutOfBoundsException: 20
