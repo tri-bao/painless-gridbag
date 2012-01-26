@@ -1,0 +1,48 @@
+26.01.2012 v1.0.6
+- New features:
+	+ Allow customizing anchor of any label: In previous versions, the painless-gridbag controls anchor
+	  of all labels based on the attribute alignAllLabelsToRight of the config object. From now on, if you
+	  want to anchor a label differently from the rest (for example: NORTH), use the new method in 
+	  PainlessGridBagConfiguration: addLabelAnchor(JLabel lbl, int anchor)
+- Bug fixes:
+	+ Issue 1 (http://code.google.com/p/painless-gridbag/issues/detail?id=1)
+		This issue only affects layouts that are using the following utility
+			LayoutUtils.addButtonPanel(gbl, leftButtons, rightButtons)
+		and only affects left buttons.
+		To workaround this issue (in previous versions) while using the above method, you may have used
+		the utility
+			LayoutUtils.addButtonPanel(gbl, buttonConfig, leftButtons, rightButtons)
+		and adjusting insets of the first left button.
+		Now, when upgrading to this version (with this fix), you are recommended to check again all places
+		where those 2 methods are used.
+	+ Issue 2 (http://code.google.com/p/painless-gridbag/issues/detail?id=2)
+		The original tooltip (the tooltip of the component) is now displayed inside the debug tooltip
+		
+12.12.2011 v1.0.5
+- new API: fillX(weightx), fillY(weighty), fillXY(weightx, weighty)
+- Fix "ArrayIndexOutOfBoundsException: 20" when there is 19 (exactly) rows defined in one PainlessGridbag
+java.lang.ArrayIndexOutOfBoundsException: 20
+    at org.painlessgridbag.util.Dynamic2DArray.get(Dynamic2DArray.java:98)
+    at org.painlessgridbag.engine.GridCell.checkRemainderOnRow(GridCell.java:188)
+    at org.painlessgridbag.engine.GridCell.fillCells(GridCell.java:157)
+    at org.painlessgridbag.engine.GridCell.cellXRemainder(GridCell.java:106)
+    at org.painlessgridbag.PainlessGridBag.done(PainlessGridBag.java:136)
+    
+07.12.2009 v1.0.4
+- Now, there will be no "extra" spacing at the bottom when using doneAndPushEverythingToTop()
+- addButtonPanel methods in LayoutUtils now accept PainlessGridbagConfiguration from outside
+
+05.11.2009 v1.0.3
+- Improve handling label alignment: add ability to have labels that aligned differently
+  from default behavior
+
+05.11.2009 v1.0.2
+- Ability to configure the alignment (left/right) of all JLabel
+- Add LayoutUtils class
+- Document clearly in javadoc that the doneAndPushEverythingToTop method saying that 
+   the method cannot be used if there is on component was added via cellYRemainder
+- Add AddressBookDemo class.
+  
+31.10.2009 v1.0.1
+- Add method doneAndPushEverythingToTop() PainlessGridBag which works the same as method 
+  <code>done()</code> but all the components in the gird bag will be push to top of the container.
