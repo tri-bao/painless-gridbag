@@ -44,7 +44,9 @@ public class Debugger {
         if (!debug) {
             return compo;
         }
-        JPanel result = new JPanel();
+        final JPanel result = new JPanel();
+        result.setToolTipText(compo.getToolTipText());
+        compo.setToolTipText(null);
         result
                 .setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1,
                         Color.RED));
@@ -60,7 +62,9 @@ public class Debugger {
                         && e.getComponent() instanceof JComponent) {
                     JComponent component = (JComponent) e.getComponent();
                     if (component.getToolTipText(e) == null) {
-                        component.setToolTipText(dump(component, constraint));
+                        component.setToolTipText(dump(component,
+                                                        result.getToolTipText(),
+                                                        constraint));
                     }
                 }
             }
@@ -69,10 +73,18 @@ public class Debugger {
     }
 
     private String dump(
-            final JComponent compo, final GridBagConstraints constraint) {
+            final JComponent compo, 
+            final String orgTt,
+            final GridBagConstraints constraint) {
         StringBuilder str = new StringBuilder();
         str.append("<html>");
-        str.append("<br><b>PreferredSize:</b>: ");
+        if (orgTt != null) {
+            str.append("<b>Component tooltip:</b>").append(
+                    orgTt.replaceAll("<html>", "").replaceAll("</html>", ""));
+            str.append("<br><b>PreferredSize:</b>: ");
+        } else {
+            str.append("<b>PreferredSize:</b>: ");
+        }
         str.append("<br> - width: ").append(compo.getPreferredSize().width);
         str.append("<br> - height: ").append(compo.getPreferredSize().height);
         str.append("<br><b>Actual size:</b>: ");
