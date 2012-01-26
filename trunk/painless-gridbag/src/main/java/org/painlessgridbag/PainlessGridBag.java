@@ -19,9 +19,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -149,11 +146,14 @@ public class PainlessGridBag {
         done = true;
     }
     
-    private void processLabel(JComponent compo, GridBagConstraints constraint) {
+    private void processLabel(final JComponent compo,
+            final GridBagConstraints constraint) {
         if (!(compo instanceof JLabel)) {
             return;
         }
-        if (config.isAlignAllLabelsToRight()) {
+        if (config.getLabelsWithSpecificAnchor().get(compo) != null) {
+            constraint.anchor = config.getLabelsWithSpecificAnchor().get(compo);
+        } else if (config.isAlignAllLabelsToRight()) {
             if (!config.getLeftAlignLabels().contains(compo)) {
                 constraint.anchor = GridBagConstraints.LINE_END;
             } else {
