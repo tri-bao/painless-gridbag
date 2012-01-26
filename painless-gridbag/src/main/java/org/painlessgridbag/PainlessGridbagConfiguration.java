@@ -17,7 +17,9 @@
 package org.painlessgridbag;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.swing.JLabel;
@@ -39,7 +41,8 @@ public class PainlessGridbagConfiguration {
     private boolean alignAllLabelsToRight = false;
     private final Set<JLabel> leftAlignLabels = new HashSet<JLabel>();
     private final Set<JLabel> rightAlignLabels = new HashSet<JLabel>();
-
+    private final Map<JLabel, Integer> labelsWithSpecificAnchor =
+        new HashMap<JLabel, Integer>();
     // CHECKSTYLE:ON MagicNumber
 
     public int getVirticalSpacing() {
@@ -141,5 +144,23 @@ public class PainlessGridbagConfiguration {
         if (rightAlignLabels != null) {
             this.rightAlignLabels.addAll(Arrays.asList(rightAlignLabels));
         }
+    }
+    
+    /**
+     * By default, the util bases on the flag 
+     * <code>alignAllLabelsToRight</code> to set anchor (left or right) for 
+     * all labels. If there are some labels that need to be anchored differently
+     * from the rest, use this method.
+     *  
+     * @param lbl the label to set specific anchor.
+     * @param anchor one of the "anchor" values from GrigBagConstraint class.
+     */
+    public void addLabelAnchor(final JLabel lbl, final int anchor) {
+        labelsWithSpecificAnchor.put(lbl, anchor);
+    }
+    
+    // package protected, should be only accessed by PainlessGridBag class.
+    Map<JLabel, Integer> getLabelsWithSpecificAnchor() {
+        return labelsWithSpecificAnchor;
     }
 }
