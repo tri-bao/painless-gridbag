@@ -139,7 +139,7 @@ public final class LayoutUtils {
             final PainlessGridBag containterGbl,
             final JButton[] leftBtns,
             final JButton[] rightBtns,
-            PainlessGridbagConfiguration config,
+            final PainlessGridbagConfiguration config,
             final boolean isDefaultConfig) {
         JPanel pnlButton = new JPanel();
         PainlessGridBag gbl = new PainlessGridBag(pnlButton, config, false);
@@ -161,8 +161,6 @@ public final class LayoutUtils {
 
         containterGbl.row().cellXRemainder(pnlButton).fillX();
         containterGbl.constraints(pnlButton).anchor = GridBagConstraints.CENTER;
-        containterGbl.constraints(pnlButton).insets.left = 0;
-        containterGbl.constraints(pnlButton).insets.right = 0;
         return pnlButton;
     }
     
