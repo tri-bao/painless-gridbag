@@ -1,6 +1,5 @@
 # Release notes #
-http://code.google.com/p/painless-gridbag/source/browse/trunk/painless-gridbag/release-notes.txt
-
+https://github.com/tri-bao/painless-gridbag/blob/master/painless-gridbag/release-notes.txt
 ---
 
 Have you ever felt [totally gridbag](http://madbean.com/anim/totallygridbag/)? Lets see how the life changes with this utility: Your layout code is now like following
@@ -77,8 +76,5 @@ With this utility, you can avoid all of these troubles. You don't need a designe
   * **No textual** configuration needed.
   * **Freedom**: This utility will construct the layout with its default constraints (insets, padding...) but you can customise it whatever you want.
 
-# Contributions #
-Please don't hesitate to report [bugs/feature requests](http://code.google.com/p/painless-gridbag/issues/list), submit [patches/enhancements](http://code.google.com/p/painless-gridbag/source/checkout), improve [documentation](http://code.google.com/p/painless-gridbag/w/list) or post your question to [discussion board](http://groups.google.com/group/painless-gridbag)
-
 # What next to look for #
-Although this utility saves you from the mess of layout code with a huge GridBagContraints, you still have to manage the resizing behaviour by yourself (sometime, your components collapse into a 1-pixel height! You need to set the minimum size for them). It is recommended that, if possible, you should use other modern layout managers instead of GridBagLayout, such as, [DesignGridLayout](https://designgridlayout.dev.java.net/). With it, your GUIs will always have a please look.
+Although this utility saves you from the mess of layout code with a huge GridBagContraints, you still have to manage the resizing behaviour by yourself (sometime, your components collapse into a 1-pixel height! You need to set the minimum size for them). There is a modern layout manager you should check it out, called [DesignGridLayout](https://designgridlayout.dev.java.net/)
