@@ -17,7 +17,7 @@ That code will produce a screen looks like
 > ![http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png](http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png)
 
 # How to use #
-  1. Download jar file at the [download tab](http://code.google.com/p/painless-gridbag/downloads/list) and add it in the classpath
+  1. Download jar file at the [release tab](https://github.com/tri-bao/painless-gridbag/releases) and add it in the classpath
   1. All classes at the root of package **org.painlessgridbag** can be used directly. Your starting class is **PainlessGridBag**
   1. Now, lets play with it via the following "visual" tutorial
 ![http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png](http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png)
