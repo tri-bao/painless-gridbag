@@ -92,7 +92,6 @@
                 <configuration>
                     <source>1.5</source>
                     <target>1.5</target>
-                    <showDeprection>true</showDeprection>
                     <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
@@ -108,7 +107,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>LATEST</version>
+                <version>1.6.3</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -119,7 +118,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>

@@ -15,7 +15,16 @@ That code will produce a screen looks like
 > ![http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png](http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png)
 
 # How to use #
-  1. Download jar file at the [release tab](https://github.com/tri-bao/painless-gridbag/releases) and add it in the classpath
+  1. Download jar file at the [release tab](https://github.com/tri-bao/painless-gridbag/releases) and add it in the classpath,
+      Or add the following dependency into your maven pom.xml file
+```
+        <dependency>
+            <groupId>com.github.tri-bao</groupId>
+            <artifactId>painless-gridbag</artifactId>
+            <packaging>jar</packaging>
+            <version>1.0.6</version>
+        <dependency>
+```
   1. All classes at the root of package **org.painlessgridbag** can be used directly. Your starting class is **PainlessGridBag**
   1. Now, lets play with it via the following "visual" tutorial
 ![http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png](http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png)
