@@ -1,6 +1,4 @@
-# Release notes #
-https://github.com/tri-bao/painless-gridbag/blob/master/painless-gridbag/release-notes.txt
----
+# A small utility that removes the painfulness when working with Swing's grid bag layout using fluent API. #
 
 Have you ever felt [totally gridbag](http://madbean.com/anim/totallygridbag/)? Lets see how the life changes with this utility: Your layout code is now like following
 
@@ -75,6 +73,3 @@ With this utility, you can avoid all of these troubles. You don't need a designe
   * **Self-descriptive API**: You only need to know the starting class. Then its API will express itself to you. That means with a minimum documentation (even no javadoc!), you can easily know how to use this utility.
   * **No textual** configuration needed.
   * **Freedom**: This utility will construct the layout with its default constraints (insets, padding...) but you can customise it whatever you want.
-
-# What next to look for #
-Although this utility saves you from the mess of layout code with a huge GridBagContraints, you still have to manage the resizing behaviour by yourself (sometime, your components collapse into a 1-pixel height! You need to set the minimum size for them). There is a modern layout manager you should check it out, called [DesignGridLayout](https://designgridlayout.dev.java.net/)
