@@ -9,7 +9,7 @@
 
     <name>painless-gridbag</name>
     <description>
-        A small utility that removes the painfulness when working with Swing's grid bag layout using fluent API.
+        A small utility that removes the painfulness when working with Swing's GridBagLayout using fluent API.
     </description>
     <url>https://github.com/tri-bao/painless-gridbag</url>
 

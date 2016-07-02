@@ -1,4 +1,4 @@
-# A small utility that removes the painfulness when working with Swing's grid bag layout using fluent API. #
+# A small utility that removes the painfulness when working with Swing's GridBagLayout using fluent API. #
 
 Have you ever felt [totally gridbag](http://madbean.com/anim/totallygridbag/)? Lets see how the life changes with this utility: Your layout code is now like following
 
