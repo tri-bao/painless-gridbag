@@ -1,3 +1,6 @@
+# A small utility that removes the painfulness when working with Swing's GridBagLayout using fluent API. Edit
+ Add topics
+
 Have you ever felt [totally gridbag](https://www.youtube.com/watch?v=UuLaxbFKAcc)? Lets see how the life changes with this utility: Your layout code is now like following
 
 ```
