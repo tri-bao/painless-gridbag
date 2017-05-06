@@ -1,6 +1,4 @@
-# A small utility that removes the painfulness when working with Swing's GridBagLayout using fluent API. #
-
-Have you ever felt [totally gridbag](http://madbean.com/anim/totallygridbag/)? Lets see how the life changes with this utility: Your layout code is now like following
+Have you ever felt [totally gridbag](https://www.youtube.com/watch?v=UuLaxbFKAcc)? Lets see how the life changes with this utility: Your layout code is now like following
 
 ```
         PainlessGridBag gbl = new PainlessGridBag(getContentPane(), false);
@@ -12,7 +10,7 @@ Have you ever felt [totally gridbag](http://madbean.com/anim/totallygridbag/)? L
 
 That code will produce a screen looks like
 
-> ![http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png](http://painless-gridbag.googlecode.com/files/Screenshot-Painless-GridBag%20Demo.png)
+> ![demo simple](https://raw.githubusercontent.com/tri-bao/painless-gridbag/master/demo-files/screenshot-simple.png)
 
 # How to use #
   1. Download jar file at the [release tab](https://github.com/tri-bao/painless-gridbag/releases) and add it in the classpath,
@@ -27,28 +25,15 @@ That code will produce a screen looks like
 ```
   1. All classes at the root of package **org.painlessgridbag** can be used directly. Your starting class is **PainlessGridBag**
   1. Now, lets play with it via the following "visual" tutorial
-![http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png](http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial.png)
+![demo complete](https://raw.githubusercontent.com/tri-bao/painless-gridbag/master/demo-files/screenshot-tutorial.png)
 
 If you want to see constraints of each component, turn the debug flag to "true". Change the first line as following:
 ```
-        PainlessGridBag gbl = new PainlessGridBag(getContentPane(), true);
+        PainlessGridBag gbl = new PainlessGridBag(getContentPane(), config, true);
 ```
 
 The result looks like:
-![http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial-debug.png](http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial-debug.png)
-
-Now, if you want to change default constraints set by the utility, add the following code:
-
-```
-        PainlessGridbagConfiguration config = new PainlessGridbagConfiguration();
-        config.setVirticalSpacing(0);
-        config.setHorizontalSpacing(0);
-        
-        PainlessGridBag gbl = new PainlessGridBag(getContentPane(), config, false);
-```
-
-the result now looks like:
-![http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial-config.png](http://painless-gridbag.googlecode.com/files/painless-gridbag-tutorial-config.png)
+![demo complete debug](https://raw.githubusercontent.com/tri-bao/painless-gridbag/master/demo-files/screenshot-tutorial-debug.png)
 
 If you want to change GridBagConstraint of a particular component. For example x-padding of button 10, add the following lines BEFORE the last line:
 
