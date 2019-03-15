@@ -136,8 +136,6 @@ public class Debugger {
             return "FIRST_LINE_END";
         } else if (anchor == GridBagConstraints.LINE_START) {
             return "LINE_START";
-        } else if (anchor == GridBagConstraints.CENTER) {
-            return "CENTER";
         } else if (anchor == GridBagConstraints.LINE_END) {
             return "LINE_END";
         } else if (anchor == GridBagConstraints.LAST_LINE_START) {

@@ -56,7 +56,7 @@ public class PainlessGridBag {
     private final Debugger debugger;
     private boolean done = false;
     private final GridCell layout;
-    private final PainlessGridbagConfiguration config;
+    private final PainlessGridBagConfiguration config;
 
     /**
      * @param container
@@ -68,11 +68,11 @@ public class PainlessGridBag {
      *            the grid bag constraints set to the component.
      */
     public PainlessGridBag(final Container container, final boolean debug) {
-        this(container, new PainlessGridbagConfiguration(), debug);
+        this(container, new PainlessGridBagConfiguration(), debug);
     }
 
     public PainlessGridBag(final Container container,
-            final PainlessGridbagConfiguration config, final boolean debug) {
+                           final PainlessGridBagConfiguration config, final boolean debug) {
         this.container = container;
         this.debugger = new Debugger(debug);
         this.layout = new GridCell(config);
@@ -176,7 +176,7 @@ public class PainlessGridBag {
         }
     }
 
-    public PainlessGridbagConfiguration getConfig() {
+    public PainlessGridBagConfiguration getConfig() {
         return config;
     }
 }
