@@ -28,7 +28,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import org.painlessgridbag.PainlessGridBag;
-import org.painlessgridbag.PainlessGridbagConfiguration;
+import org.painlessgridbag.PainlessGridBagConfiguration;
 import org.painlessgridbag.util.Assert;
 import org.painlessgridbag.util.Dynamic2DArray;
 
@@ -52,9 +52,9 @@ public class GridCell implements IGridCell, IGridFillable {
     private final Map<JComponent, GridBagConstraints> children = 
         new HashMap<JComponent, GridBagConstraints>();
 
-    private final PainlessGridbagConfiguration config;
+    private final PainlessGridBagConfiguration config;
 
-    public GridCell(final PainlessGridbagConfiguration config) {
+    public GridCell(final PainlessGridBagConfiguration config) {
         this.config = config;
         rowCounter++;
         colCounter = -1;
@@ -223,7 +223,7 @@ public class GridCell implements IGridCell, IGridFillable {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.ipadx = 0;
         constraint.ipady = 0;
-        constraint.insets = new java.awt.Insets(config.getVirticalSpacing(), 0,
+        constraint.insets = new java.awt.Insets(config.getVerticalSpacing(), 0,
                 0, config.getHorizontalSpacing());
         constraint.anchor = java.awt.GridBagConstraints.LINE_START;
         constraint.fill = GridBagConstraints.NONE;

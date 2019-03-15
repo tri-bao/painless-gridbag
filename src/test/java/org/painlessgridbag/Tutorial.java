@@ -20,7 +20,7 @@ public class Tutorial extends JFrame {
     private void anotherLayout() {
         PainlessGridBag gbl = new PainlessGridBag(getContentPane(), config(),false);
 
-        gbl.row().cell(new JLabel("PainlessGridbagConfiguration config = new PainlessGridbagConfiguration();"));
+        gbl.row().cell(new JLabel("PainlessGridBagConfiguration config = new PainlessGridBagConfiguration();"));
         gbl.row().cell(new JLabel("config.setFirstColumnLeftSpacing(5);"));
         gbl.row().cell(new JLabel("config.setFirstRowTopSpacing(5);"));
         gbl.row().cell(new JLabel("config.setLastColumnRightSpacing(5);"));
@@ -36,8 +36,8 @@ public class Tutorial extends JFrame {
         gbl.doneAndPushEverythingToTop();
     }
 
-    private PainlessGridbagConfiguration config() {
-        PainlessGridbagConfiguration config = new PainlessGridbagConfiguration();
+    private PainlessGridBagConfiguration config() {
+        PainlessGridBagConfiguration config = new PainlessGridBagConfiguration();
         config.setFirstColumnLeftSpacing(5);
         config.setFirstRowTopSpacing(5);
         config.setLastColumnRightSpacing(5);

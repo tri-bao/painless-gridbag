@@ -79,7 +79,7 @@ public class AddressBookDemo extends JFrame {
     }
 
     private void initLayout() {
-        PainlessGridbagConfiguration config = new PainlessGridbagConfiguration();
+        PainlessGridBagConfiguration config = new PainlessGridBagConfiguration();
         // All JLabels have to be right-aligned.
         config.setAlignAllLabelsToRight(true);
         // Except these lables
@@ -106,8 +106,8 @@ public class AddressBookDemo extends JFrame {
         
         // Adjust some spacings that don't meet the requirement.
         gbl.constraints(scrPeople).insets.bottom = config.getLastRowBottomSpacing();
-        gbl.constraints(txtCity).insets.right = config.getVirticalSpacing();
-        gbl.constraints(txtCountry).insets.right = config.getVirticalSpacing();
+        gbl.constraints(txtCity).insets.right = config.getVerticalSpacing();
+        gbl.constraints(txtCountry).insets.right = config.getVerticalSpacing();
         gbl.constraints(pnlButton).insets.right = 0;
         gbl.constraints(lblFirstName).anchor = GridBagConstraints.LINE_START;
         

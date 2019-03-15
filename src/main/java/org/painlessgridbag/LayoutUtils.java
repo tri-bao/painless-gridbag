@@ -45,7 +45,7 @@ public final class LayoutUtils {
             final PainlessGridBag containterGbl,
             final JButton... buttons) {
         
-        PainlessGridbagConfiguration config = creatNoOuterSpacingConfig();
+        PainlessGridBagConfiguration config = creatNoOuterSpacingConfig();
         return addButtonPanelInternal(containterGbl, config, true, buttons);
     }
     
@@ -55,7 +55,7 @@ public final class LayoutUtils {
      */
     public static JPanel addButtonPanel(
             final PainlessGridBag containterGbl,
-            final PainlessGridbagConfiguration buttonConfig,
+            final PainlessGridBagConfiguration buttonConfig,
             final JButton... buttons) {
 
         return addButtonPanelInternal(
@@ -64,7 +64,7 @@ public final class LayoutUtils {
 
     private static JPanel addButtonPanelInternal(
             final PainlessGridBag containterGbl,
-            final PainlessGridbagConfiguration buttonConfig,
+            final PainlessGridBagConfiguration buttonConfig,
             final boolean isDefaultConfig,
             final JButton... buttons) {
         // create button panel
@@ -100,15 +100,15 @@ public final class LayoutUtils {
             
             if (!firstBtn && isDefaultConfig) {
                 gbl.constraints(button).insets.left = 
-                    gbl.getConfig().getVirticalSpacing() * 2;
+                    gbl.getConfig().getVerticalSpacing() * 2;
             }
             firstBtn = false;
         }
     }
     
-    private static PainlessGridbagConfiguration creatNoOuterSpacingConfig() {
-        PainlessGridbagConfiguration config = 
-            new PainlessGridbagConfiguration();
+    private static PainlessGridBagConfiguration creatNoOuterSpacingConfig() {
+        PainlessGridBagConfiguration config =
+            new PainlessGridBagConfiguration();
         config.setFirstRowTopSpacing(0);
         config.setLastRowBottomSpacing(0);
         config.setFirstColumnLeftSpacing(0);
@@ -129,7 +129,7 @@ public final class LayoutUtils {
             final PainlessGridBag containterGbl,
             final JButton[] leftBtns,
             final JButton[] rightBtns) {
-        PainlessGridbagConfiguration config = creatNoOuterSpacingConfig();
+        PainlessGridBagConfiguration config = creatNoOuterSpacingConfig();
 
         return addButtonPanelInternal(
                 containterGbl, leftBtns, rightBtns, config, true);
@@ -139,7 +139,7 @@ public final class LayoutUtils {
             final PainlessGridBag containterGbl,
             final JButton[] leftBtns,
             final JButton[] rightBtns,
-            final PainlessGridbagConfiguration config,
+            final PainlessGridBagConfiguration config,
             final boolean isDefaultConfig) {
         JPanel pnlButton = new JPanel();
         PainlessGridBag gbl = new PainlessGridBag(pnlButton, config, false);
@@ -172,7 +172,7 @@ public final class LayoutUtils {
      */
     public static JPanel addButtonPanel(
             final PainlessGridBag containterGbl,
-            final PainlessGridbagConfiguration buttonConfig,
+            final PainlessGridBagConfiguration buttonConfig,
             final JButton[] leftBtns,
             final JButton[] rightBtns) {
         return addButtonPanelInternal(
